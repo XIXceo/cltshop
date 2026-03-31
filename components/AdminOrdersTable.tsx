@@ -16,7 +16,7 @@ type Order = {
   shippingCity: string;
   shippingPostal: string;
   shippingCountry: string;
-  user: { email: string | null; name: string | null };
+  user: { email: string | null; name: string | null } | null;
   items: Array<{
     id: string;
     productTitle: string;
