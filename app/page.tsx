@@ -2,6 +2,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import ProductCard from "@/components/ProductCard";
 
+export const dynamic = "force-dynamic";
+
 // Icons
 function ArrowRightIcon({ className }: { className?: string }) {
   return (

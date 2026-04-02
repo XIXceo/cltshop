@@ -3,6 +3,8 @@ import { formatDistanceToNow } from "date-fns";
 import { prisma } from "@/lib/prisma";
 import { formatCents } from "@/lib/money";
 
+export const dynamic = "force-dynamic";
+
 // Icons
 function DollarIcon({ className }: { className?: string }) {
   return (
