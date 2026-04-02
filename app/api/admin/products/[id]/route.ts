@@ -28,8 +28,6 @@ const ProductUpdateSchema = z.object({
   variants: z.array(VariantSchema).min(1),
 });
 
-import { NextRequest } from "next/server";
-
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } },
