@@ -104,7 +104,7 @@ export default function Navbar() {
             <div className="hidden sm:flex items-center gap-2 ml-4 pl-4 border-l border-slate-800">
               {isAuthed ? (
                 <button
-                  onClick={() => signOut({ callbackUrl: "/" })}
+                  onClick={() => signOut()}
                   className="btn-secondary text-xs"
                 >
                   Sign out
