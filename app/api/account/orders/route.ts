@@ -4,10 +4,9 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET(req: NextRequest) {
   const token = await getToken({
-    req,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
-
+  req: req as any,
+  secret: process.env.NEXTAUTH_SECRET,
+});
   if (!token?.id) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
