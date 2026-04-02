@@ -1,11 +1,18 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest } from "next/server";
-import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function GET(req: NextRequest) {
+  // Return empty during build phase
+  if (process.env.NEXT_PHASE === "phase-production-build") {
+    return Response.json({ orders: [] });
+  }
+
   try {
+    const { prisma } = await import("@/lib/prisma");
+    
     const token = await getToken({
       req: req as any,
       secret: process.env.NEXTAUTH_SECRET,
