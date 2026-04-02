@@ -25,7 +25,9 @@ const ProductCreateSchema = z.object({
   variants: z.array(VariantSchema).min(1),
 });
 
-export async function GET(req: Request) {
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
   const res = await requireAdmin(req);
   if (!res.ok) return Response.json({ error: "Forbidden" }, { status: res.status });
 
@@ -44,7 +46,7 @@ export async function GET(req: Request) {
   });
 }
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const res = await requireAdmin(req);
   if (!res.ok) return Response.json({ error: "Forbidden" }, { status: res.status });
 

@@ -9,7 +9,9 @@ const SignupSchema = z.object({
   name: z.string().min(1).max(80).optional(),
 });
 
-export async function POST(req: Request) {
+import { NextRequest } from "next/server";
+
+export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   const parsed = SignupSchema.safeParse(body);
   if (!parsed.success) {

@@ -26,8 +26,10 @@ const ProductUpdateSchema = z.object({
   variants: z.array(VariantSchema).min(1),
 });
 
+import { NextRequest } from "next/server";
+
 export async function GET(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } },
 ) {
   const res = await requireAdmin(req);
@@ -48,7 +50,7 @@ export async function GET(
 }
 
 export async function PUT(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } },
 ) {
   const res = await requireAdmin(req);

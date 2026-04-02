@@ -15,7 +15,9 @@ const CheckoutSchema = z.object({
   items: z.array(CartItemSchema).min(1, "Cart must have at least one item"),
 });
 
-export async function POST(req: Request) {
+import { NextRequest } from "next/server";
+
+export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   const parsed = CheckoutSchema.safeParse(body);
   if (!parsed.success) {

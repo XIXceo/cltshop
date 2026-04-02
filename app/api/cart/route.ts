@@ -9,7 +9,9 @@ const CartUpsertSchema = z.object({
   quantity: z.number().int().min(1).optional(),
 });
 
-export async function GET(req: Request) {
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
   try {
     const token = await getToken({
       req,
@@ -78,7 +80,7 @@ export async function GET(req: Request) {
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const token = await getToken({
       req,
