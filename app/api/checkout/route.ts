@@ -2,6 +2,8 @@ import { z } from "zod";
 
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const CartItemSchema = z.object({
   variantId: z.string(),
   quantity: z.number().min(1),

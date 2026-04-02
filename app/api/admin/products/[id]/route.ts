@@ -1,7 +1,9 @@
 import { z } from "zod";
-
-import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin";
+import { prisma } from "@/lib/prisma";
+import { NextRequest } from "next/server";
+
+export const dynamic = "force-dynamic";
 
 const ImageSchema = z.object({
   url: z.string().url(),

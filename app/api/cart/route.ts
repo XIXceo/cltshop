@@ -3,6 +3,8 @@ import { getToken } from "next-auth/jwt";
 
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const CartUpsertSchema = z.object({
   action: z.enum(["upsert", "remove", "clear"]),
   variantId: z.string().optional(),

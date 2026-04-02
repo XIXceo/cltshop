@@ -3,6 +3,8 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin";
 
+export const dynamic = "force-dynamic";
+
 const CategoryCreateSchema = z.object({
   name: z.string().min(1).max(60),
   slug: z.string().min(1).max(80),
